@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * 消费者的组名
+ */
 public class UserConsumer {
     /**
      * 消费者的组名
