@@ -62,10 +62,10 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <!--srpingcloud-->
-           <dependency>
+           <!--<dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-            </dependency>
+            </dependency>-->
     <!--模板引擎 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -73,9 +73,24 @@
         </dependency>
         <!--rbmq-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.2.0</version>
         </dependency>
+        <!--简化javabean相关操作-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.44</version>
+        </dependency>
+
         <!--jpa-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -1,10 +1,6 @@
 package com.ssmspringboot.springbootdemo.web;
 
 import com.ssmspringboot.springbootdemo.web.exception.MyException;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +10,6 @@ import java.util.Map;
 
 @Controller
 public class HelloController {
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
-
     @ResponseBody
     @RequestMapping("/hello")
     public String hello() throws Exception {
@@ -44,17 +37,5 @@ public class HelloController {
     @RequestMapping("/json")
     public String json() throws MyException {
         throw new MyException("发生错误2");
-    }
-    @RabbitListener
-    @RequestMapping("/mq")
-    public String setMq() throws MyException {
-        try {
-            rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
-            rabbitTemplate.setExchange("111111");//
-            rabbitTemplate.setRoutingKey("2222");
-        } catch (Exception e) {
-            throw new MyException("");
-        }
-        return "index";
     }
 }
